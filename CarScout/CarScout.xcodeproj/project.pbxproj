@@ -99,13 +99,12 @@
 		CD4652312375BD48006B8108 /* CarScout */ = {
 			isa = PBXGroup;
 			children = (
-				CD4652322375BD48006B8108 /* AppDelegate.swift */,
-				CD4652342375BD48006B8108 /* SceneDelegate.swift */,
-				CD4652362375BD48006B8108 /* ViewController.swift */,
-				CD4652382375BD48006B8108 /* Main.storyboard */,
-				CD46523B2375BD4A006B8108 /* Assets.xcassets */,
-				CD46523D2375BD4A006B8108 /* LaunchScreen.storyboard */,
-				CD4652402375BD4A006B8108 /* Info.plist */,
+				CD4652672375DFEE006B8108 /* Home */,
+				CD4652632375DC7C006B8108 /* Models */,
+				CD4652642375DF9B006B8108 /* Network Manager */,
+				CD4652662375DFB4006B8108 /* Startup */,
+				CD4652652375DFAA006B8108 /* Supporting Files */,
+				CD4652622375DC73006B8108 /* Resources */,
 			);
 			path = CarScout;
 			sourceTree = "<group>";
@@ -126,6 +125,55 @@
 				CD4652562375BD4A006B8108 /* Info.plist */,
 			);
 			path = CarScoutUITests;
+			sourceTree = "<group>";
+		};
+		CD4652622375DC73006B8108 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CD46523B2375BD4A006B8108 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CD4652632375DC7C006B8108 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CD4652642375DF9B006B8108 /* Network Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Network Manager";
+			sourceTree = "<group>";
+		};
+		CD4652652375DFAA006B8108 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD46523D2375BD4A006B8108 /* LaunchScreen.storyboard */,
+				CD4652402375BD4A006B8108 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD4652662375DFB4006B8108 /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				CD4652322375BD48006B8108 /* AppDelegate.swift */,
+				CD4652342375BD48006B8108 /* SceneDelegate.swift */,
+			);
+			path = Startup;
+			sourceTree = "<group>";
+		};
+		CD4652672375DFEE006B8108 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CD4652362375BD48006B8108 /* ViewController.swift */,
+				CD4652382375BD48006B8108 /* Main.storyboard */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,7 +484,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CN4W3YSZKE;
-				INFOPLIST_FILE = CarScout/Info.plist;
+				INFOPLIST_FILE = "CarScout/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,7 +502,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CN4W3YSZKE;
-				INFOPLIST_FILE = CarScout/Info.plist;
+				INFOPLIST_FILE = "CarScout/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

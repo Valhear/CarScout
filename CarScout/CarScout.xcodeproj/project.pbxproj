@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD064DF62376E6D700123422 /* carList.json in Resources */ = {isa = PBXBuildFile; fileRef = CD064DF52376E6D700123422 /* carList.json */; };
 		CD4652332375BD48006B8108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652322375BD48006B8108 /* AppDelegate.swift */; };
 		CD4652352375BD48006B8108 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652342375BD48006B8108 /* SceneDelegate.swift */; };
-		CD4652372375BD48006B8108 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652362375BD48006B8108 /* ViewController.swift */; };
+		CD4652372375BD48006B8108 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652362375BD48006B8108 /* HomeViewController.swift */; };
 		CD46523A2375BD48006B8108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4652382375BD48006B8108 /* Main.storyboard */; };
 		CD46523C2375BD4A006B8108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD46523B2375BD4A006B8108 /* Assets.xcassets */; };
 		CD46523F2375BD4A006B8108 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD46523D2375BD4A006B8108 /* LaunchScreen.storyboard */; };
@@ -35,10 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD064DF52376E6D700123422 /* carList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = carList.json; sourceTree = "<group>"; };
 		CD46522F2375BD48006B8108 /* CarScout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarScout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4652322375BD48006B8108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD4652342375BD48006B8108 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CD4652362375BD48006B8108 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CD4652362375BD48006B8108 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CD4652392375BD48006B8108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD46523B2375BD4A006B8108 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD46523E2375BD4A006B8108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		CD4652652375DFAA006B8108 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CD064DF52376E6D700123422 /* carList.json */,
 				CD46523D2375BD4A006B8108 /* LaunchScreen.storyboard */,
 				CD4652402375BD4A006B8108 /* Info.plist */,
 			);
@@ -170,7 +173,7 @@
 		CD4652672375DFEE006B8108 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				CD4652362375BD48006B8108 /* ViewController.swift */,
+				CD4652362375BD48006B8108 /* HomeViewController.swift */,
 				CD4652382375BD48006B8108 /* Main.storyboard */,
 			);
 			path = Home;
@@ -282,6 +285,7 @@
 			files = (
 				CD46523F2375BD4A006B8108 /* LaunchScreen.storyboard in Resources */,
 				CD46523C2375BD4A006B8108 /* Assets.xcassets in Resources */,
+				CD064DF62376E6D700123422 /* carList.json in Resources */,
 				CD46523A2375BD48006B8108 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD4652372375BD48006B8108 /* ViewController.swift in Sources */,
+				CD4652372375BD48006B8108 /* HomeViewController.swift in Sources */,
 				CD4652332375BD48006B8108 /* AppDelegate.swift in Sources */,
 				CD4652352375BD48006B8108 /* SceneDelegate.swift in Sources */,
 			);

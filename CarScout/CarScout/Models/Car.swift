@@ -9,6 +9,15 @@
 import Foundation
 import MapKit
 
-struct Car {
-    let annotation: MKAnnotation
+struct Car: Codable {
+    var id: String
+    var modelIdentifier: String
+    var modelName: String
+    var name: String
+    var make: String
+    
+    var latitude: Double
+    var longitude: Double
+    
+    var carImageUrl: String
 }

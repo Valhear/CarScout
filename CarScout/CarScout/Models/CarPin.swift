@@ -22,3 +22,10 @@ class CarPin: NSObject, MKAnnotation {
         super.init()
   }
 }
+
+extension CarPin {
+    convenience init(car: Car) {
+        let carCoordinate = CLLocationCoordinate2D(latitude: car.latitude, longitude: car.longitude)
+        self.init(title: car.make, subtitle: car.modelName, coordinate:carCoordinate)
+    }
+}

@@ -31,13 +31,9 @@ class HomeViewController: UIViewController {
     func updateCarList() {
         let networkHandler = NetworkHandler()
         let cars = networkHandler.getCarList()
-        let annotations = cars.map { $0.annotation }
+        let annotations = cars.map { CarPin(car: $0) }
         
         mapView.addAnnotations(annotations)
-        
-        // show single pin on map
-        let carPin = CarPin(title: "BMW", subtitle: "MINI", coordinate: CLLocationCoordinate2D(latitude: 48.134557, longitude: 11.576921))
-        mapView.addAnnotation(carPin)
     }
 }
 

@@ -15,7 +15,6 @@
 		CD064DFA2377161B00123422 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD064DF92377161B00123422 /* NetworkHandler.swift */; };
 		CD064DFC2377240300123422 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD064DFB2377240300123422 /* Car.swift */; };
 		CD3B699723795E2300895F3A /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3B699523795E2300895F3A /* CarDetailsViewController.swift */; };
-		CD3B699823795E2300895F3A /* CarDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD3B699623795E2300895F3A /* CarDetailsViewController.xib */; };
 		CD4652332375BD48006B8108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652322375BD48006B8108 /* AppDelegate.swift */; };
 		CD4652352375BD48006B8108 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652342375BD48006B8108 /* SceneDelegate.swift */; };
 		CD4652372375BD48006B8108 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652362375BD48006B8108 /* HomeViewController.swift */; };
@@ -24,7 +23,6 @@
 		CD46523F2375BD4A006B8108 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD46523D2375BD4A006B8108 /* LaunchScreen.storyboard */; };
 		CD46524A2375BD4A006B8108 /* CarScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652492375BD4A006B8108 /* CarScoutTests.swift */; };
 		CD4652552375BD4A006B8108 /* CarScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652542375BD4A006B8108 /* CarScoutUITests.swift */; };
-		CD5AC84E2379A0ED0077ED4E /* CarDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD5AC84D2379A0ED0077ED4E /* CarDetails.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +57,6 @@
 		CD064DF92377161B00123422 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		CD064DFB2377240300123422 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		CD3B699523795E2300895F3A /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
-		CD3B699623795E2300895F3A /* CarDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarDetailsViewController.xib; sourceTree = "<group>"; };
 		CD46522F2375BD48006B8108 /* CarScout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarScout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4652322375BD48006B8108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD4652342375BD48006B8108 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +71,6 @@
 		CD4652502375BD4A006B8108 /* CarScoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarScoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4652542375BD4A006B8108 /* CarScoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarScoutUITests.swift; sourceTree = "<group>"; };
 		CD4652562375BD4A006B8108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD5AC84D2379A0ED0077ED4E /* CarDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CarDetails.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				CD3B699523795E2300895F3A /* CarDetailsViewController.swift */,
-				CD3B699623795E2300895F3A /* CarDetailsViewController.xib */,
-				CD5AC84D2379A0ED0077ED4E /* CarDetails.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -355,8 +349,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD46523F2375BD4A006B8108 /* LaunchScreen.storyboard in Resources */,
-				CD3B699823795E2300895F3A /* CarDetailsViewController.xib in Resources */,
-				CD5AC84E2379A0ED0077ED4E /* CarDetails.storyboard in Resources */,
 				CD46523C2375BD4A006B8108 /* Assets.xcassets in Resources */,
 				CD064DF62376E6D700123422 /* carList.json in Resources */,
 				CD46523A2375BD48006B8108 /* Main.storyboard in Resources */,

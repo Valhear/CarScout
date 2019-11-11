@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Delegate-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="CarScout" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,10 +29,50 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="carDetailView" destination="9ta-xB-YCP" id="nmK-NO-Yhu"/>
                         <outlet property="mapView" destination="Agj-Sb-wSs" id="NOb-Qu-4jD"/>
+                        <outlet property="showListButton" destination="bQl-4j-ewE" id="Ngo-44-o9J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="9ta-xB-YCP" customClass="DrawerView" customModule="DrawerView">
+                    <rect key="frame" x="0.0" y="0.0" width="421" height="261"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4J-fI-z4E">
+                            <rect key="frame" x="192.5" y="6" width="36" height="5"/>
+                            <color key="backgroundColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="36" id="LGn-SI-rKK"/>
+                                <constraint firstAttribute="height" constant="5" id="W6W-5n-QyA"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQl-4j-ewE">
+                            <rect key="frame" x="177" y="176" width="67" height="30"/>
+                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="EWW-JV-uRL"/>
+                                <constraint firstAttribute="width" constant="67" id="fgG-FO-fkS"/>
+                            </constraints>
+                            <state key="normal" title="Show List"/>
+                            <connections>
+                                <action selector="showCarList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jvN-cE-Hqq"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="X4J-fI-z4E" firstAttribute="top" secondItem="9ta-xB-YCP" secondAttribute="top" constant="6" id="OJV-W7-tbJ"/>
+                        <constraint firstItem="X4J-fI-z4E" firstAttribute="centerX" secondItem="9ta-xB-YCP" secondAttribute="centerX" id="UCJ-YU-ouB"/>
+                        <constraint firstItem="lpB-n7-GCg" firstAttribute="bottom" secondItem="bQl-4j-ewE" secondAttribute="bottom" constant="21" id="dTy-8g-tZp"/>
+                        <constraint firstItem="bQl-4j-ewE" firstAttribute="centerX" secondItem="9ta-xB-YCP" secondAttribute="centerX" id="pcN-SV-yVw"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="lpB-n7-GCg"/>
+                    <connections>
+                        <outlet property="containerView" destination="Agj-Sb-wSs" id="CTi-CU-Ux8"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="YHV-3c-ubN"/>
+                    </connections>
+                </view>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="130.58035714285714"/>
         </scene>

@@ -14,6 +14,15 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var showListButton: UIButton!
+    @IBOutlet var carDetailView: DrawerView!
+    
+    @IBAction func showCarList(_ sender: UIButton) {
+        let vc = UIViewController()
+        vc.view.backgroundColor = .blue
+        present(vc, animated: true, completion: nil)
+    }
+    
     let regionRadius: CLLocationDistance = 5000
     let initialLocation = CLLocation(latitude: 48.134557, longitude: 11.576921)
     
@@ -42,14 +51,7 @@ class HomeViewController: UIViewController {
     }
     
     func showDetailsVC() {
-        let carDetailsVC = CarDetailsViewController()
-                
-        let drawerView = DrawerView()
-        drawerView.attachTo(view: self.view)
-
-        // Set up the drawer view
-        drawerView.snapPositions = [.collapsed, .partiallyOpen]
-
+        carDetailView.snapPositions = [.collapsed, .partiallyOpen]
     }
 }
 

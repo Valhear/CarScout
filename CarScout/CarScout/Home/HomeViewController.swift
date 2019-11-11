@@ -52,6 +52,7 @@ class HomeViewController: UIViewController {
     
     func showDetailsVC() {
         carDetailView.snapPositions = [.collapsed, .partiallyOpen]
+        carDetailView.overlayVisibilityBehavior = .disabled
     }
 }
 

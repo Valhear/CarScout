@@ -7,7 +7,7 @@ target 'CarScout' do
 
   # Pods for CarScout
 
-  pod 'drawer-view', '~> 1.0.4'
+  pod 'DrawerView'
 
   target 'CarScoutTests' do
     inherit! :search_paths

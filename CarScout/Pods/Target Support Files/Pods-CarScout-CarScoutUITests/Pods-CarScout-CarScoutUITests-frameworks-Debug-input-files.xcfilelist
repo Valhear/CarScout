@@ -1,2 +1,2 @@
 ${PODS_ROOT}/Target Support Files/Pods-CarScout-CarScoutUITests/Pods-CarScout-CarScoutUITests-frameworks.sh
-${BUILT_PRODUCTS_DIR}/drawer-view/drawer_view.framework
+${BUILT_PRODUCTS_DIR}/DrawerView/DrawerView.framework

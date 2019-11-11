@@ -10,7 +10,8 @@
 #endif
 #endif
 
+#import "DrawerView.h"
 
-FOUNDATION_EXPORT double drawer_viewVersionNumber;
-FOUNDATION_EXPORT const unsigned char drawer_viewVersionString[];
+FOUNDATION_EXPORT double DrawerViewVersionNumber;
+FOUNDATION_EXPORT const unsigned char DrawerViewVersionString[];
 

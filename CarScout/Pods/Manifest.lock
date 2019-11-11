@@ -1,16 +1,16 @@
 PODS:
-  - drawer-view (1.0.4)
+  - DrawerView (1.2.2)
 
 DEPENDENCIES:
-  - drawer-view (~> 1.0.4)
+  - DrawerView
 
 SPEC REPOS:
   trunk:
-    - drawer-view
+    - DrawerView
 
 SPEC CHECKSUMS:
-  drawer-view: b000b1940a97bb4ade18b773219c8430e6da843e
+  DrawerView: 0870f61b8aabc17c01b3095afd3b5189befa7a93
 
-PODFILE CHECKSUM: 66b89047b15920c4772ea18c6497ee8085e0e06d
+PODFILE CHECKSUM: d6e2e264bdee5b1d182b5c83d622b29bd1c18f28
 
 COCOAPODS: 1.8.4

@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import DrawerView
 
 class HomeViewController: UIViewController {
 
@@ -42,8 +43,13 @@ class HomeViewController: UIViewController {
     
     func showDetailsVC() {
         let carDetailsVC = CarDetailsViewController()
-        
-        present(carDetailsVC, animated: true, completion: nil)
+                
+        let drawerView = DrawerView()
+        drawerView.attachTo(view: self.view)
+
+        // Set up the drawer view
+        drawerView.snapPositions = [.collapsed, .partiallyOpen]
+
     }
 }
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,7 @@
 		CD46523F2375BD4A006B8108 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD46523D2375BD4A006B8108 /* LaunchScreen.storyboard */; };
 		CD46524A2375BD4A006B8108 /* CarScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652492375BD4A006B8108 /* CarScoutTests.swift */; };
 		CD4652552375BD4A006B8108 /* CarScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652542375BD4A006B8108 /* CarScoutUITests.swift */; };
+		CD5AC84E2379A0ED0077ED4E /* CarDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD5AC84D2379A0ED0077ED4E /* CarDetails.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		CD4652502375BD4A006B8108 /* CarScoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarScoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4652542375BD4A006B8108 /* CarScoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarScoutUITests.swift; sourceTree = "<group>"; };
 		CD4652562375BD4A006B8108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD5AC84D2379A0ED0077ED4E /* CarDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CarDetails.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +115,6 @@
 				63F4B28F08013E7A3AC61EBC /* Pods-CarScoutTests.debug.xcconfig */,
 				690790905BD92ECA392BB880 /* Pods-CarScoutTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -132,6 +133,7 @@
 			children = (
 				CD3B699523795E2300895F3A /* CarDetailsViewController.swift */,
 				CD3B699623795E2300895F3A /* CarDetailsViewController.xib */,
+				CD5AC84D2379A0ED0077ED4E /* CarDetails.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -354,6 +356,7 @@
 			files = (
 				CD46523F2375BD4A006B8108 /* LaunchScreen.storyboard in Resources */,
 				CD3B699823795E2300895F3A /* CarDetailsViewController.xib in Resources */,
+				CD5AC84E2379A0ED0077ED4E /* CarDetails.storyboard in Resources */,
 				CD46523C2375BD4A006B8108 /* Assets.xcassets in Resources */,
 				CD064DF62376E6D700123422 /* carList.json in Resources */,
 				CD46523A2375BD48006B8108 /* Main.storyboard in Resources */,

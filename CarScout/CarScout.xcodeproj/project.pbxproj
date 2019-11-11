@@ -23,6 +23,7 @@
 		CD46523F2375BD4A006B8108 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD46523D2375BD4A006B8108 /* LaunchScreen.storyboard */; };
 		CD46524A2375BD4A006B8108 /* CarScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652492375BD4A006B8108 /* CarScoutTests.swift */; };
 		CD4652552375BD4A006B8108 /* CarScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652542375BD4A006B8108 /* CarScoutUITests.swift */; };
+		CD583B912379D5CC0030C7A2 /* CarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD583B902379D5CC0030C7A2 /* CarListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		CD4652502375BD4A006B8108 /* CarScoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarScoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4652542375BD4A006B8108 /* CarScoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarScoutUITests.swift; sourceTree = "<group>"; };
 		CD4652562375BD4A006B8108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD583B902379D5CC0030C7A2 /* CarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				CD3B699523795E2300895F3A /* CarDetailsViewController.swift */,
+				CD583B902379D5CC0030C7A2 /* CarListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				CD4652332375BD48006B8108 /* AppDelegate.swift in Sources */,
 				CD064DFA2377161B00123422 /* NetworkHandler.swift in Sources */,
 				CD4652352375BD48006B8108 /* SceneDelegate.swift in Sources */,
+				CD583B912379D5CC0030C7A2 /* CarListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

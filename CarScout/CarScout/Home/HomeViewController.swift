@@ -12,19 +12,19 @@ import DrawerView
 
 class HomeViewController: UIViewController {
 
+    let regionRadius: CLLocationDistance = 5000
+    let initialLocation = CLLocation(latitude: 48.134557, longitude: 11.576921)
+    
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var showListButton: UIButton!
     @IBOutlet var carDetailView: DrawerView!
     
     @IBAction func showCarList(_ sender: UIButton) {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .blue
+        let vc = CarListViewController()
+
         present(vc, animated: true, completion: nil)
     }
-    
-    let regionRadius: CLLocationDistance = 5000
-    let initialLocation = CLLocation(latitude: 48.134557, longitude: 11.576921)
     
     override func viewDidLoad() {
         super.viewDidLoad()

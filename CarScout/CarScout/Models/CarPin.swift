@@ -20,7 +20,7 @@ class CarPin: NSObject, MKAnnotation {
         self.coordinate = coordinate
     
         super.init()
-  }
+    }
 }
 
 extension CarPin {

@@ -22,6 +22,10 @@ class HomeViewController: UIViewController {
         centerMapOnLocation(location: initialLocation)
         updateCarList()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        showDetailsVC()
+    }
 
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
@@ -34,6 +38,12 @@ class HomeViewController: UIViewController {
         let annotations = cars.map { CarPin(car: $0) }
         
         mapView.addAnnotations(annotations)
+    }
+    
+    func showDetailsVC() {
+        let carDetailsVC = CarDetailsViewController()
+        
+        present(carDetailsVC, animated: true, completion: nil)
     }
 }
 

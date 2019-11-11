@@ -25,7 +25,6 @@ class NetworkHandler {
             print("Error", parsingError)
         }
         
-        
         return cars
     }
 }

@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
-    let regionRadius: CLLocationDistance = 1000
+    let regionRadius: CLLocationDistance = 5000
     let initialLocation = CLLocation(latitude: 48.134557, longitude: 11.576921)
     
     override func viewDidLoad() {

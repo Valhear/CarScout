@@ -1,0 +1,16 @@
+PODS:
+  - drawer-view (1.0.4)
+
+DEPENDENCIES:
+  - drawer-view (~> 1.0.4)
+
+SPEC REPOS:
+  trunk:
+    - drawer-view
+
+SPEC CHECKSUMS:
+  drawer-view: b000b1940a97bb4ade18b773219c8430e6da843e
+
+PODFILE CHECKSUM: 66b89047b15920c4772ea18c6497ee8085e0e06d
+
+COCOAPODS: 1.8.4

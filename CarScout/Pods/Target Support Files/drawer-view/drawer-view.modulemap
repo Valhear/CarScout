@@ -1,0 +1,6 @@
+framework module drawer_view {
+  umbrella header "drawer-view-umbrella.h"
+
+  export *
+  module * { export * }
+}

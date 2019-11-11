@@ -1,0 +1,6 @@
+framework module Pods_CarScout_CarScoutUITests {
+  umbrella header "Pods-CarScout-CarScoutUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

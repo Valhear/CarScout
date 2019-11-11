@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'CarScout' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for CarScout
+
+  pod 'drawer-view', '~> 1.0.4'
+
+  target 'CarScoutTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'CarScoutUITests' do
+    # Pods for testing
+  end
+
+end

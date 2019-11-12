@@ -7,9 +7,17 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CarDetailsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var make: UILabel!
+    @IBOutlet weak var modelName: UILabel!
+    @IBOutlet weak var fuelType: UILabel!
+    @IBOutlet weak var fuelLevel: UILabel!
+    @IBOutlet weak var transmission: UILabel!
+    @IBOutlet weak var carImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +28,21 @@ class CarDetailsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configure(with car: Car) {
+        let imageURL = URL(string: car.carImageUrl)
+        carImage.setImage(with: imageURL)
+    }
 
+}
+
+extension UIImageView {
+    func setImage(with url: URL?) {
+        guard let imageURL = url else {
+            image = UIImage(named: "defaultCarImage")
+            
+            return
+        }
+        sd_setImage(with: imageURL, placeholderImage: UIImage(named: "defaultCarImage"), options: .scaleDownLargeImages, context: nil)
+    }
 }

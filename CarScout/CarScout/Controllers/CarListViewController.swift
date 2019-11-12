@@ -9,7 +9,8 @@
 import UIKit
 
 class CarListViewController: UITableViewController {
-
+    var carList = [Car]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,11 +35,12 @@ class CarListViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "carDetailsCell", for: indexPath) as? CarDetailsTableViewCell
-
-        // Configure the cell...
-
-        return cell!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "carDetailsCell", for: indexPath) as? CarDetailsTableViewCell else { return UITableViewCell() }
+        
+        let carObject = carList[indexPath.row]
+        cell.configure(with: carObject)
+        
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -15,6 +15,8 @@ class HomeViewController: UIViewController {
     let regionRadius: CLLocationDistance = 5000
     let initialLocation = CLLocation(latitude: 48.134557, longitude: 11.576921)
     
+    var carList = [Car]()
+    
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var showListButton: UIButton!
@@ -24,7 +26,8 @@ class HomeViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         guard let carListVC = storyboard.instantiateViewController(withIdentifier: "CarListViewController") as? CarListViewController else { return }
-
+        carListVC.carList = carList
+        
         present(carListVC, animated: true, completion: nil)
     }
     
@@ -48,7 +51,7 @@ class HomeViewController: UIViewController {
         let networkHandler = NetworkHandler()
         networkHandler.getCarList { [weak self] cars in
             guard let strongSelf = self else { return }
-            
+            strongSelf.carList = cars
             let annotations = cars.map { CarPin(car: $0) }
             
             DispatchQueue.main.async {
@@ -60,6 +63,7 @@ class HomeViewController: UIViewController {
     func showDetailsVC() {
         carDetailView.snapPositions = [.collapsed, .partiallyOpen]
         carDetailView.overlayVisibilityBehavior = .disabled
+        carDetailView.partiallyOpenHeight = 300
     }
 }
 

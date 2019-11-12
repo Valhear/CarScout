@@ -262,6 +262,14 @@
                                         <constraint firstItem="qKY-iG-zm4" firstAttribute="leading" secondItem="Cb1-wf-Qm9" secondAttribute="leading" id="qly-xb-jtq"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="carImage" destination="fbf-rW-5bv" id="a6m-mr-NmP"/>
+                                    <outlet property="fuelLevel" destination="gUm-Kg-Uvt" id="0py-1s-H46"/>
+                                    <outlet property="fuelType" destination="dgr-UG-Pro" id="Cfk-hQ-K8C"/>
+                                    <outlet property="make" destination="Cb1-wf-Qm9" id="zoi-AA-tJQ"/>
+                                    <outlet property="modelName" destination="c8k-wQ-28s" id="LRr-bc-4FF"/>
+                                    <outlet property="transmission" destination="PDV-dH-r40" id="yie-Jf-FLC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

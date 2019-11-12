@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var showListButton: UIButton!
-    @IBOutlet var carDetailView: DrawerView!
+    @IBOutlet var carDetailView: CarDetailsView!
     
     @IBAction func showCarList(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -61,9 +61,15 @@ class HomeViewController: UIViewController {
     }
     
     func showDetailsVC() {
-        carDetailView.snapPositions = [.collapsed, .partiallyOpen]
-        carDetailView.overlayVisibilityBehavior = .disabled
-        carDetailView.partiallyOpenHeight = 300
+        let drawerView = DrawerView()
+           drawerView.attachTo(view: self.view)
+        
+        drawerView.snapPositions = [.collapsed, .partiallyOpen]
+        drawerView.overlayVisibilityBehavior = .disabled
+        drawerView.partiallyOpenHeight = 300
+        carDetailView.frame = drawerView.bounds
+
+        drawerView.addSubview(carDetailView)
     }
 }
 

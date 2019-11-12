@@ -69,6 +69,7 @@ class HomeViewController: UIViewController {
         drawerView.partiallyOpenHeight = 300
         carDetailView.frame = drawerView.bounds
 
+        carDetailView.configure(with: carList[0])
         drawerView.addSubview(carDetailView)
     }
 }

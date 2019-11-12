@@ -32,6 +32,12 @@ class CarDetailsTableViewCell: UITableViewCell {
     func configure(with car: Car) {
         let imageURL = URL(string: car.carImageUrl)
         carImage.setImage(with: imageURL)
+        
+        make.text = car.make
+        modelName.text = car.modelName
+        fuelType.text = car.fuelType
+        fuelLevel.text = "\(car.fuelLevel)"
+        transmission.text = car.transmission
     }
 
 }

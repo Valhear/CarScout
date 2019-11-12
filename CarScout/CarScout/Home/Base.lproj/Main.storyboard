@@ -170,6 +170,17 @@
                         <constraint firstItem="rmp-F1-474" firstAttribute="top" secondItem="Nlm-jM-Qcr" secondAttribute="bottom" constant="50" id="zXc-z5-4uQ"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="lpB-n7-GCg"/>
+                    <connections>
+                        <outlet property="carImage" destination="mUA-kL-T3f" id="8ao-es-kic"/>
+                        <outlet property="cleanliness" destination="rmp-F1-474" id="Gxg-SO-ik9"/>
+                        <outlet property="fuelLevel" destination="35T-AR-sev" id="xcP-5J-CYR"/>
+                        <outlet property="fuelType" destination="qOF-f9-aQE" id="5Eh-xs-uEh"/>
+                        <outlet property="license" destination="Nlm-jM-Qcr" id="RYX-T5-8Au"/>
+                        <outlet property="make" destination="kj5-p0-zbP" id="nAs-QW-SBO"/>
+                        <outlet property="modelName" destination="KPw-K3-O82" id="CKg-px-bdb"/>
+                        <outlet property="name" destination="w3Z-TI-zaT" id="Uz7-16-I4D"/>
+                        <outlet property="transmission" destination="l5F-Jy-piz" id="6rs-tV-0Uc"/>
+                    </connections>
                 </view>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="130.58035714285714"/>

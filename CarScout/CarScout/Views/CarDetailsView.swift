@@ -13,7 +13,7 @@ class CarDetailsView: UIView {
     @IBOutlet weak var make: UILabel!
     @IBOutlet weak var modelName: UILabel!
     @IBOutlet weak var license: UILabel!
-    @IBOutlet weak var cleanliness: UILabel!
+    @IBOutlet weak var cleanliness: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var fuelType: UILabel!
     @IBOutlet weak var fuelLevel: UILabel!
@@ -28,11 +28,11 @@ class CarDetailsView: UIView {
         make.text = car.make
         modelName.text = car.modelName
         license.text = car.licensePlate
-        cleanliness.text = car.innerCleanliness
+        cleanliness.tintColor = car.cleanliness
         name.text = car.name
-        fuelType.text = car.fuelType
-        fuelLevel.text = "\(car.fuelLevel)"
-        transmission.text = car.transmission
+        fuelType.text = car.fuelKind
+        fuelLevel.text = car.fuelPercentage
+        transmission.text = car.transmissionType
         carImage.setImage(with: imageURL)
         
     }

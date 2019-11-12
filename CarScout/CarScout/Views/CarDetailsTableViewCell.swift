@@ -35,9 +35,9 @@ class CarDetailsTableViewCell: UITableViewCell {
         
         make.text = car.make
         modelName.text = car.modelName
-        fuelType.text = car.fuelType
-        fuelLevel.text = "\(car.fuelLevel)"
-        transmission.text = car.transmission
+        fuelType.text = car.fuelKind
+        fuelLevel.text = car.fuelPercentage
+        transmission.text = car.transmissionType
     }
 
 }

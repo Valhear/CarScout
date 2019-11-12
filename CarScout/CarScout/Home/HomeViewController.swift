@@ -21,9 +21,11 @@ class HomeViewController: UIViewController {
     @IBOutlet var carDetailView: DrawerView!
     
     @IBAction func showCarList(_ sender: UIButton) {
-        let vc = CarListViewController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        guard let carListVC = storyboard.instantiateViewController(withIdentifier: "CarListViewController") as? CarListViewController else { return }
 
-        present(vc, animated: true, completion: nil)
+        present(carListVC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {

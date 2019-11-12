@@ -25,6 +25,7 @@
 		CD4652552375BD4A006B8108 /* CarScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652542375BD4A006B8108 /* CarScoutUITests.swift */; };
 		CD583B912379D5CC0030C7A2 /* CarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD583B902379D5CC0030C7A2 /* CarListViewController.swift */; };
 		CD583B93237AD3240030C7A2 /* CarModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD583B92237AD3240030C7A2 /* CarModelTests.swift */; };
+		CD957A19237AFF590013DD0A /* CarDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD957A18237AFF590013DD0A /* CarDetailsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		CD4652562375BD4A006B8108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD583B902379D5CC0030C7A2 /* CarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewController.swift; sourceTree = "<group>"; };
 		CD583B92237AD3240030C7A2 /* CarModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelTests.swift; sourceTree = "<group>"; };
+		CD957A18237AFF590013DD0A /* CarDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				CD4652672375DFEE006B8108 /* Home */,
+				CD957A17237AFF130013DD0A /* Views */,
 				CD3B699223795DBB00895F3A /* Controllers */,
 				CD4652632375DC7C006B8108 /* Models */,
 				CD4652642375DF9B006B8108 /* Network Manager */,
@@ -243,6 +246,14 @@
 				CD4652382375BD48006B8108 /* Main.storyboard */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		CD957A17237AFF130013DD0A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD957A18237AFF590013DD0A /* CarDetailsTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -491,6 +502,7 @@
 				CD064DFC2377240300123422 /* Car.swift in Sources */,
 				CD4652332375BD48006B8108 /* AppDelegate.swift in Sources */,
 				CD064DFA2377161B00123422 /* NetworkHandler.swift in Sources */,
+				CD957A19237AFF590013DD0A /* CarDetailsTableViewCell.swift in Sources */,
 				CD4652352375BD48006B8108 /* SceneDelegate.swift in Sources */,
 				CD583B912379D5CC0030C7A2 /* CarListViewController.swift in Sources */,
 			);

@@ -1,16 +1,22 @@
 PODS:
   - DrawerView (1.2.2)
+  - SDWebImage (5.3.1):
+    - SDWebImage/Core (= 5.3.1)
+  - SDWebImage/Core (5.3.1)
 
 DEPENDENCIES:
   - DrawerView
+  - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
     - DrawerView
+    - SDWebImage
 
 SPEC CHECKSUMS:
   DrawerView: 0870f61b8aabc17c01b3095afd3b5189befa7a93
+  SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
 
-PODFILE CHECKSUM: d6e2e264bdee5b1d182b5c83d622b29bd1c18f28
+PODFILE CHECKSUM: d4019987530dc88a16c9f3e412ff5972237f98b3
 
 COCOAPODS: 1.8.4

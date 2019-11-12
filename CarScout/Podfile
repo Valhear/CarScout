@@ -8,6 +8,7 @@ target 'CarScout' do
   # Pods for CarScout
 
   pod 'DrawerView'
+  pod 'SDWebImage', '~> 5.0'
 
   target 'CarScoutTests' do
     inherit! :search_paths

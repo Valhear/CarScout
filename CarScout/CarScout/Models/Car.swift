@@ -15,9 +15,13 @@ struct Car: Codable {
     var modelName: String
     var name: String
     var make: String
-    
+    var color: String
+    var fuelType: String
+    var fuelLevel: Double
+    var transmission: String
+    var licensePlate: String
     var latitude: Double
     var longitude: Double
-    
+    var innerCleanliness: String
     var carImageUrl: String
 }

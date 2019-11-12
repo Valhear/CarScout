@@ -9,31 +9,30 @@
 import Foundation
 
 class NetworkHandler {
-    var cars = [Car]()
+    let serverURL = "https://cdn.sixt.io/codingtask/cars"
     
-    func getCarList() -> [Car] {
+    //TODO Handle/return failure block in case of errors
+    func getCarList(success: @escaping ([Car]) -> Void) {
         
         //TODO: Network Request
         let session = URLSession.shared
-        guard let url = URL(string: "https://cdn.sixt.io/codingtask/cars") else { return cars }
+        guard let url = URL(string: serverURL) else { return }
 
         let task = session.dataTask(with: url) { (data, response, error) in
-            print(data)
-            print(response)
-            print(error)
-            
-            
-            //TODO: Implement Error Handling for all this cases
+            //TODO: Implement Error Handling below cases
             
             //Check for errors in response
-            if error != nil {
-                //Throw an error with throw and use promises to deal with any thrown or passed errors in the chain’s .catch clause
+            if error != nil || data == nil {
+                //Throw an error with throw
+                //use promises to deal with any thrown or passed errors in the chain’s .catch clause
+                print("Client error!")
                 //self.handleClientError(error)
                 return
             }
             
             //Check for HTTP response code if errors
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                print("Server error!")
                 //self.handleServerError(response)
                 return
             }
@@ -44,36 +43,30 @@ class NetworkHandler {
                 return
             }
             
-            if let json = try? JSONSerialization.jsonObject(with: data!, options: []) {
-                print(json)
+            guard let dataResponse = data, let carList = self.decode(dataResponse: dataResponse) else {
+                return
             }
+            success(carList)
         }
         
         task.resume()
         
-        
-        //Get json from Local json file
-        guard let filePath = Bundle.main.url(forResource: "carList", withExtension: "json") else { return cars }
-        guard let dataResponse = try? Data(contentsOf: filePath) else { return cars }
-        
-        decode(dataResponse: dataResponse)
-        
-        
-        //serverUrl: https://cdn.sixt.io/codingtask/cars
-        
-        
-        
-        return cars
+        return
     }
     
-    func decode(dataResponse: Data) {
+    //TODO: Handle Error in case of failure decode
+    func decode(dataResponse: Data) -> [Car]? {
         //Decode JSON Response Data
         do {
             let decoder = JSONDecoder()
             let carList = try decoder.decode([Car].self, from: dataResponse)
-            cars = carList
+            
+            return carList
         } catch let parsingError {
+            //Throw
             print("Error", parsingError)
         }
+        
+        return nil
     }
 }

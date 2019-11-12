@@ -44,10 +44,15 @@ class HomeViewController: UIViewController {
     
     func updateCarList() {
         let networkHandler = NetworkHandler()
-        let cars = networkHandler.getCarList()
-        let annotations = cars.map { CarPin(car: $0) }
-        
-        mapView.addAnnotations(annotations)
+        networkHandler.getCarList { [weak self] cars in
+            guard let strongSelf = self else { return }
+            
+            let annotations = cars.map { CarPin(car: $0) }
+            
+            DispatchQueue.main.async {
+                strongSelf.mapView.addAnnotations(annotations)
+            }
+        }
     }
     
     func showDetailsVC() {

@@ -14,18 +14,17 @@ class NetworkHandler {
     //TODO Handle/return failure block in case of errors
     func getCarList(success: @escaping ([Car]) -> Void) {
         
-        //TODO: Network Request
         let session = URLSession.shared
         guard let url = URL(string: serverURL) else { return }
 
         let task = session.dataTask(with: url) { (data, response, error) in
-            //TODO: Implement Error Handling below cases
             
             //Check for errors in response
             if error != nil || data == nil {
                 //Throw an error with throw
                 //use promises to deal with any thrown or passed errors in the chain’s .catch clause
                 print("Client error!")
+                NetworkError(error: error!)
                 //self.handleClientError(error)
                 return
             }
@@ -33,13 +32,13 @@ class NetworkHandler {
             //Check for HTTP response code if errors
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
                 print("Server error!")
-                //self.handleServerError(response)
+                NetworkError(response: response)
                 return
             }
             
             guard let mime = response?.mimeType, mime == "application/json" else {
                 //TODO: Recover from the error
-                print("Wrong MIME type!")
+                NetworkError.wrongContentType
                 return
             }
             

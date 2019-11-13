@@ -20,6 +20,12 @@ class CarDetailsView: UIView {
     @IBOutlet weak var transmission: UILabel!
     @IBOutlet weak var carImage: UIImageView!
     
+    var carDetailsProvider: CarDetailsProvider?
+    
+    @IBAction func showCarList(_ sender: UIButton) {
+        carDetailsProvider?.showCarListTableViewController()
+    }
+    
     //TODO:Add property car Image URL
     
     func configure(with car: Car) {
@@ -34,9 +40,7 @@ class CarDetailsView: UIView {
         fuelLevel.text = car.fuelPercentage
         transmission.text = car.transmissionType
         carImage.setImage(with: imageURL)
-        
     }
-    
 }
 
 

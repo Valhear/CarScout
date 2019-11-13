@@ -40,10 +40,10 @@ public enum NetworkError: Error {
         case .notAuthenticated: return 401
         case .forbidden: return 403
         case .notFound: return 404
+        case .wrongContentType: return 415
         case .clientProblem(_): return 10001
         case .unknown(_): return 10002
         case .userCancelled: return 99999
-        case .wrongContentType: return 415
         }
     }
 }

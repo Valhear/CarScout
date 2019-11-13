@@ -45,15 +45,26 @@ class HomeViewController: UIViewController {
     
     func updateCarList() {
         let networkHandler = NetworkHandler()
-        networkHandler.getCarList { [weak self] cars in
+        networkHandler.getCarList(success: { [weak self] cars in
             guard let strongSelf = self else { return }
+            guard let cars = cars else { return }
+            
             strongSelf.carList = cars
             let annotations = cars.map { CarAnnotation(car: $0) }
             
             DispatchQueue.main.async {
                 strongSelf.mapView.addAnnotations(annotations)
             }
-        }
+        }, failure: { [weak self] error in
+            guard let strongSelf = self else { return }
+            guard let error = error else { return }
+                        
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Error downloading the car data", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in } ))
+                strongSelf.present(alert, animated: true, completion: nil)
+            }
+        })
     }
     
     private func setupDrawerView() {

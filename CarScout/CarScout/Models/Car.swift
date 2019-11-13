@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-struct Car: Codable {
+public struct Car: Codable {
     var id: String
     var modelIdentifier: String
     var modelName: String

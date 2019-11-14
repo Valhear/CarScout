@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 extension UIImageView {
+    /// Sets the image from a given url
     func setImage(with url: URL?) {
         guard let imageURL = url else {
             image = UIImage(named: Car.PropertyKeys.defaultImageName)
@@ -18,5 +19,4 @@ extension UIImageView {
         }
         sd_setImage(with: imageURL, placeholderImage: UIImage(named: "defaultCarImage"), options: .scaleDownLargeImages, context: nil)
     }
-    
 }

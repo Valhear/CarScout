@@ -9,12 +9,16 @@
 import Foundation
 import MapKit
 
+/// Represents a Car Object, it is a rep
+/// This object is capable of being encoded and decoded to/from a serialized format, like JSON
 public struct Car: Codable {
     
+    /// The name of the image representing the default fallback.
     public enum PropertyKeys {
         static let defaultImageName = "defaultCarImage"
     }
     
+    /// Car Properties
     var id: String
     var modelIdentifier: String
     var modelName: String

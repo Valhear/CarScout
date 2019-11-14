@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Possible errors from a netwrok request
 public enum NetworkError: Error {
     case clientProblem(Error)
     case wrongContentType
@@ -16,11 +17,13 @@ public enum NetworkError: Error {
     case notFound
     case unknown(HTTPURLResponse?)
     case userCancelled
-
+    
+    /// Creates an instance of a Network Error from a given Error object
     public init(error: Error) {
        self = .clientProblem(error)
      }
      
+    /// Creates an instance of a Network Error from a given URL Response object
     public init(response: URLResponse?) {
         guard let response = response as? HTTPURLResponse else {
             self = .unknown(nil)
@@ -35,6 +38,7 @@ public enum NetworkError: Error {
         }
      }
     
+    /// Possible status codes for network errors
     public var statusCode: Int {
         switch self {
         case .notAuthenticated: return 401

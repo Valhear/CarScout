@@ -9,6 +9,7 @@
 import UIKit
 
 class CarListViewController: UITableViewController {
+    /// Constants to be used in Car details tableView
     private enum TableViewLayoutConstants {
         static let headerHeight: CGFloat = 60.0
         static let cellHeight: CGFloat = 150.0
@@ -40,11 +41,9 @@ class CarListViewController: UITableViewController {
         
         return cell
     }
-}
-
-// MARK: - Table view delegate
-
-extension CarListViewController {
+    
+    // MARK: - Table view delegate
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return TableViewLayoutConstants.cellHeight
     }

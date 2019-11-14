@@ -10,11 +10,16 @@ import UIKit
 import MapKit
 import DrawerView
 
+/// Set of methods called in response to the delegated presenting actions.
 protocol CarDetailsPresenter {
+    /// Method called to show the Car Details of the given Car Object
     func showCarDetails(carItem: CarViewModel?)
+    
+    /// Method called to show the list of cars available
     func showCarListTableViewController()
 }
 
+/// Represents the Main view controller where the Car Object are visually displayed in a Map through Pins
 class HomeViewController: UIViewController {
     let regionRadius: CLLocationDistance = 5000
     let initialLocation = CLLocation(latitude: 48.134557, longitude: 11.576921)
@@ -36,12 +41,14 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         setupDrawerView()
     }
-
+    
+    /// Moves the map and centers on given location
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    /// Retrieve the List of cars from the network
     func updateCarList() {
         let networkHandler = NetworkHandler()
         networkHandler.getCarList(success: { [weak self] cars in
@@ -66,6 +73,7 @@ class HomeViewController: UIViewController {
         })
     }
     
+    /// Prepares the DrawerView that contains the Details for the selected Car
     private func setupDrawerView() {
         drawerView.attachTo(view: self.view)
         drawerView.snapPositions = [.collapsed, .partiallyOpen]
@@ -80,6 +88,7 @@ class HomeViewController: UIViewController {
 }
 
 // MARK: - MKMapViewDelegate
+
 extension HomeViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         let pinSelected = view.annotation as! CarAnnotation
@@ -93,6 +102,8 @@ extension HomeViewController: MKMapViewDelegate {
         drawerView.setPosition(.partiallyOpen, animated: true)
     }
 }
+
+// MARK: - CarDetailsPresenter
 
 extension HomeViewController: CarDetailsPresenter {
     func showCarDetails(carItem: CarViewModel?) {

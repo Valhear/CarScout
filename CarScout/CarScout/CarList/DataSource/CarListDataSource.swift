@@ -8,13 +8,15 @@
 
 import Foundation
 
+/// Set of methods called to retrieve information regarding the Cars available
 protocol CarListDataSourceProtocol: class {
     func numberOfSections() -> Int
     func numberOfCarItems() -> Int
     func item(at indexPath: IndexPath) -> CarViewModel?
 }
 
-class CarListDataSource: CarListDataSourceProtocol {
+/// Represents a datasource object which contains the list of Cars and returns data related
+class CarListDataSource {
     private var carList = [CarViewModel]()
     
     init(carItems: [Car]) {
@@ -22,7 +24,10 @@ class CarListDataSource: CarListDataSourceProtocol {
             carList.append(CarViewModel(car: car))
         }
     }
-    
+}
+
+// MARK: - CarListDataSourceProtocol
+extension CarListDataSource: CarListDataSourceProtocol {
     func numberOfSections() -> Int {
         return 1
     }
@@ -35,5 +40,5 @@ class CarListDataSource: CarListDataSourceProtocol {
         let carObject = carList[indexPath.row]
 
         return carObject
-    }    
+    }
 }

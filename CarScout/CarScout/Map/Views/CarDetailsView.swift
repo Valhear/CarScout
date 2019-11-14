@@ -9,6 +9,7 @@
 import Foundation
 import DrawerView
 
+/// The View to be shown over the Map containing the details of the selected Car Pin
 class CarDetailsView: UIView {
     @IBOutlet weak var make: UILabel!
     @IBOutlet weak var modelName: UILabel!
@@ -20,12 +21,16 @@ class CarDetailsView: UIView {
     @IBOutlet weak var transmission: UILabel!
     @IBOutlet weak var carImage: UIImageView!
     
+    /// Delegate in charge of presentation action triggered from this view
     var carDetailsPresenter: CarDetailsPresenter?
     
+    /// Button action that triggers the presentation of the Car List
     @IBAction func showCarList(_ sender: UIButton) {
         carDetailsPresenter?.showCarListTableViewController()
     }
-        
+    
+    /// Configures the current view with the given View Model
+    /// - Parameter car: Car View Model object containing the visual representation properties related to this view
     func configure(with car: CarViewModel) {        
         make.text = car.make
         modelName.text = car.modelName

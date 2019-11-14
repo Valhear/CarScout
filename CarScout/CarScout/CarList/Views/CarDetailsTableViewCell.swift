@@ -26,6 +26,8 @@ class CarDetailsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    /// Configures the current Cell with the given View Model
+    /// - Parameter car: Car View Model object containing the visual representation properties related to this view
     func configure(with car: CarViewModel) {
         carImage.setImage(with: car.carImageUrl)
         

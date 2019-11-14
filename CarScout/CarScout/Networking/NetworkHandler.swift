@@ -12,8 +12,11 @@ public typealias DownloadFailure = (_ error: NetworkError?) -> Void
 public typealias DownloadSuccess = (_ success: [Car]?) -> Void
 
 class NetworkHandler {
-    let serverURL = "https://cdn.sixt.io/codingtask/cars"
+    private let serverURL = "https://cdn.sixt.io/codingtask/cars"
     
+    /// Retrieves a list of cars from the given URL
+    /// - Parameter success: Response with an array of Car Items in case the request is succesful
+    /// - Parameter failure: Response with an Error Item in case the request is unsuccesful
     func getCarList(success: @escaping DownloadSuccess, failure: @escaping DownloadFailure) {
         let session = URLSession.shared
         guard let url = URL(string: serverURL) else { return }
@@ -45,6 +48,8 @@ class NetworkHandler {
         return
     }
     
+    /// Decodes a data object into an array of Car Items
+    /// - Parameter dataResponse: Object containing the data to be decoded
     func decode(dataResponse: Data) -> [Car]? {
         //Decode JSON Response Data
         do {

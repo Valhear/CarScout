@@ -10,39 +10,74 @@ import XCTest
 @testable import CarScout
 
 class CarModelTests: XCTestCase {
-
+    var networkHandler: NetworkHandler?
+    var testCars: [Car]?
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        networkHandler = NetworkHandler()
+        var data = Data()
+        JsonLoader.loadJSON(fromFileName: "CarListTestData", intoDataObject: &data)
+        testCars = networkHandler?.decode(dataResponse: data)
+        super.setUp()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        super.tearDown()
     }
     
-    // Test the car search JSON results mapping
+    // Test the car list JSON mapping
      func testCarListMapping() {
         let decoder = JSONDecoder()
         
-        guard let filePath = Bundle.main.url(forResource: "carList", withExtension: "json") else { return }
+        guard let filePath = Bundle.main.url(forResource: "CarListTestData", withExtension: "json") else { return }
         
         do {
             let data = try Data(contentsOf: filePath)
             let carList = try [decoder.decode([Car].self, from: data)]
             XCTAssertNotNil(carList)
         } catch {
-            XCTFail("Unable to map car items.")
+            XCTFail("Unable to get the Car items.")
+        }
+    }
+    
+    //Test String representation for "fuelLevel"
+    func testFuelLevelMapping() {
+        if let car = testCars?.first {
+            let carVM = CarViewModel(car: car)
+            XCTAssertEqual(carVM.fuelLevel, "70.0%")
+        } else {
+          XCTFail("Error getting the car object.")
+        }
+    }
+    
+    //Test String representation for "fuelType"
+    func testFuelTypeMapping() {
+        if let car = testCars?.first {
+            let carVM = CarViewModel(car: car)
+            XCTAssertEqual(carVM.fuelType, "Diesel")
+        } else {
+          XCTFail("Error getting the car object.")
+        }
+    }
+    
+    //Test String representation for "transmission"
+    func testTransmissionTypelMapping() {
+        if let car = testCars?.first {
+            let carVM = CarViewModel(car: car)
+            XCTAssertEqual(carVM.transmission, "Manual")
+        } else {
+          XCTFail("Error getting the car object.")
+        }
+    }
+    
+    //Test String representation for "innerCleanliness"
+    func testInnerCleanlinessMapping() {
+        if let car = testCars?.first {
+            let carVM = CarViewModel(car: car)
+            XCTAssertEqual(carVM.innerCleanliness, UIColor.orange)
+        } else {
+          XCTFail("Error getting the car object.")
         }
     }
 }
+

@@ -10,12 +10,7 @@ import XCTest
 @testable import CarScout
 
 class CarScoutTests: XCTestCase {
-
-    var storyboard: UIStoryboard!
-    
     override func setUp() {
-        storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         super.setUp()
     }
 
@@ -24,12 +19,18 @@ class CarScoutTests: XCTestCase {
     }
 
     func testHomeScreen() {
-        let homeVC = storyboard.instantiateViewController(identifier: "HomeVC")
+        var mainStoryboard: UIStoryboard!
+        mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let homeVC = mainStoryboard.instantiateViewController(identifier: "HomeVC")
         XCTAssertNotNil(homeVC, "Unable to instantiate HomeViewController")
     }
 
     func testCarListScreen() {
-        let homeVC = storyboard.instantiateViewController(identifier: "CarListViewController")
+        var carListStoryboard: UIStoryboard!
+        carListStoryboard = UIStoryboard(name: "CarList", bundle: nil)
+        
+        let homeVC = carListStoryboard.instantiateViewController(identifier: "CarListViewController")
         XCTAssertNotNil(homeVC, "Unable to instantiate CarListViewController")
     }
 }

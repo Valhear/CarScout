@@ -18,6 +18,7 @@
 		CD154E62237D50B2003B4FCB /* CarListTestData.json in Resources */ = {isa = PBXBuildFile; fileRef = CD154E61237D50B2003B4FCB /* CarListTestData.json */; };
 		CD154E64237D547E003B4FCB /* CarListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD154E63237D547E003B4FCB /* CarListDataSource.swift */; };
 		CD3FEE83237CE60200182CB8 /* UIImageView_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3FEE82237CE60200182CB8 /* UIImageView_Extensions.swift */; };
+		CD43A7B8237D6EC700DBD743 /* CarList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD43A7B7237D6EC700DBD743 /* CarList.storyboard */; };
 		CD4652332375BD48006B8108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652322375BD48006B8108 /* AppDelegate.swift */; };
 		CD4652352375BD48006B8108 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652342375BD48006B8108 /* SceneDelegate.swift */; };
 		CD4652372375BD48006B8108 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4652362375BD48006B8108 /* HomeViewController.swift */; };
@@ -69,6 +70,7 @@
 		CD154E61237D50B2003B4FCB /* CarListTestData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CarListTestData.json; sourceTree = "<group>"; };
 		CD154E63237D547E003B4FCB /* CarListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListDataSource.swift; sourceTree = "<group>"; };
 		CD3FEE82237CE60200182CB8 /* UIImageView_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView_Extensions.swift; sourceTree = "<group>"; };
+		CD43A7B7237D6EC700DBD743 /* CarList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CarList.storyboard; sourceTree = "<group>"; };
 		CD46522F2375BD48006B8108 /* CarScout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarScout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4652322375BD48006B8108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD4652342375BD48006B8108 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,14 +185,10 @@
 		CD4652312375BD48006B8108 /* CarScout */ = {
 			isa = PBXGroup;
 			children = (
-				CD4652672375DFEE006B8108 /* Home */,
-				CD957A17237AFF130013DD0A /* Views */,
-				CD3B699223795DBB00895F3A /* Controllers */,
-				CD4652632375DC7C006B8108 /* Models */,
+				CD554E61237D71B6000C744A /* App */,
+				CD4652672375DFEE006B8108 /* Map */,
+				CD554E62237D720B000C744A /* CarList */,
 				CD4652642375DF9B006B8108 /* Networking */,
-				CD4652662375DFB4006B8108 /* Startup */,
-				CD4652652375DFAA006B8108 /* Supporting Files */,
-				CD4652622375DC73006B8108 /* Resources */,
 				CD3FEE81237CE58F00182CB8 /* Utils */,
 			);
 			path = CarScout;
@@ -226,15 +224,12 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		CD4652632375DC7C006B8108 /* Models */ = {
+		CD4652632375DC7C006B8108 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				CD064DF72376F8B100123422 /* CarAnnotation.swift */,
 				CD154E63237D547E003B4FCB /* CarListDataSource.swift */,
-				CD064DFB2377240300123422 /* Car.swift */,
-				CDA6B48E237CD57D00F67B4A /* CarViewModel.swift */,
 			);
-			path = Models;
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		CD4652642375DF9B006B8108 /* Networking */ = {
@@ -264,20 +259,76 @@
 			path = Startup;
 			sourceTree = "<group>";
 		};
-		CD4652672375DFEE006B8108 /* Home */ = {
+		CD4652672375DFEE006B8108 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				CD554E63237D725B000C744A /* Models */,
+				CD554E64237D72F7000C744A /* ViewModels */,
+				CD554E5F237D71A5000C744A /* Views */,
+				CD554E60237D71AC000C744A /* Controller */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		CD554E5F237D71A5000C744A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CDA6B484237B212800F67B4A /* CarDetailsView.swift */,
+				CD4652382375BD48006B8108 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CD554E60237D71AC000C744A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				CD4652362375BD48006B8108 /* HomeViewController.swift */,
-				CD4652382375BD48006B8108 /* Main.storyboard */,
 			);
-			path = Home;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CD554E61237D71B6000C744A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CD4652662375DFB4006B8108 /* Startup */,
+				CD4652652375DFAA006B8108 /* Supporting Files */,
+				CD4652622375DC73006B8108 /* Resources */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CD554E62237D720B000C744A /* CarList */ = {
+			isa = PBXGroup;
+			children = (
+				CD4652632375DC7C006B8108 /* DataSource */,
+				CD957A17237AFF130013DD0A /* Views */,
+				CD3B699223795DBB00895F3A /* Controllers */,
+			);
+			path = CarList;
+			sourceTree = "<group>";
+		};
+		CD554E63237D725B000C744A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CD064DF72376F8B100123422 /* CarAnnotation.swift */,
+				CD064DFB2377240300123422 /* Car.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CD554E64237D72F7000C744A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CDA6B48E237CD57D00F67B4A /* CarViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		CD957A17237AFF130013DD0A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CD43A7B7237D6EC700DBD743 /* CarList.storyboard */,
 				CD957A18237AFF590013DD0A /* CarDetailsTableViewCell.swift */,
-				CDA6B484237B212800F67B4A /* CarDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -393,6 +444,7 @@
 			files = (
 				CD46523F2375BD4A006B8108 /* LaunchScreen.storyboard in Resources */,
 				CD154E62237D50B2003B4FCB /* CarListTestData.json in Resources */,
+				CD43A7B8237D6EC700DBD743 /* CarList.storyboard in Resources */,
 				CD46523C2375BD4A006B8108 /* Assets.xcassets in Resources */,
 				CD46523A2375BD48006B8108 /* Main.storyboard in Resources */,
 			);
@@ -713,7 +765,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CN4W3YSZKE;
-				INFOPLIST_FILE = "CarScout/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "CarScout/App/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -732,7 +784,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CN4W3YSZKE;
-				INFOPLIST_FILE = "CarScout/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "CarScout/App/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

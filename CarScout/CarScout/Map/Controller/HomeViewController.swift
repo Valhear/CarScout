@@ -106,7 +106,7 @@ extension HomeViewController: CarDetailsPresenter {
     }
     
     func showCarListTableViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "CarList", bundle: nil)
         
         guard let carListVC = storyboard.instantiateViewController(withIdentifier: "CarListViewController") as? CarListViewController else { return }
         carListVC.carDetailsPresenter = self

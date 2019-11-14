@@ -13,6 +13,7 @@
 		CD064DF82376F8B100123422 /* CarAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD064DF72376F8B100123422 /* CarAnnotation.swift */; };
 		CD064DFA2377161B00123422 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD064DF92377161B00123422 /* NetworkHandler.swift */; };
 		CD064DFC2377240300123422 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD064DFB2377240300123422 /* Car.swift */; };
+		CD0EB397237D9B5E00A351E4 /* CarListDatasourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0EB396237D9B5E00A351E4 /* CarListDatasourceTests.swift */; };
 		CD154E5E237D504F003B4FCB /* NetworkHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD154E5B237D504F003B4FCB /* NetworkHandlerTests.swift */; };
 		CD154E5F237D504F003B4FCB /* JsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD154E5C237D504F003B4FCB /* JsonLoader.swift */; };
 		CD154E62237D50B2003B4FCB /* CarListTestData.json in Resources */ = {isa = PBXBuildFile; fileRef = CD154E61237D50B2003B4FCB /* CarListTestData.json */; };
@@ -65,6 +66,7 @@
 		CD064DF72376F8B100123422 /* CarAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarAnnotation.swift; sourceTree = "<group>"; };
 		CD064DF92377161B00123422 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		CD064DFB2377240300123422 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		CD0EB396237D9B5E00A351E4 /* CarListDatasourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListDatasourceTests.swift; sourceTree = "<group>"; };
 		CD154E5B237D504F003B4FCB /* NetworkHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHandlerTests.swift; sourceTree = "<group>"; };
 		CD154E5C237D504F003B4FCB /* JsonLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonLoader.swift; sourceTree = "<group>"; };
 		CD154E61237D50B2003B4FCB /* CarListTestData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CarListTestData.json; sourceTree = "<group>"; };
@@ -197,9 +199,10 @@
 		CD4652482375BD4A006B8108 /* CarScoutTests */ = {
 			isa = PBXGroup;
 			children = (
-				CD154E5B237D504F003B4FCB /* NetworkHandlerTests.swift */,
 				CD4652492375BD4A006B8108 /* CarScoutTests.swift */,
 				CD583B92237AD3240030C7A2 /* CarModelTests.swift */,
+				CD0EB396237D9B5E00A351E4 /* CarListDatasourceTests.swift */,
+				CD154E5B237D504F003B4FCB /* NetworkHandlerTests.swift */,
 				CD154E5C237D504F003B4FCB /* JsonLoader.swift */,
 				CD154E61237D50B2003B4FCB /* CarListTestData.json */,
 				CD46524B2375BD4A006B8108 /* Info.plist */,
@@ -598,6 +601,7 @@
 				CD154E5E237D504F003B4FCB /* NetworkHandlerTests.swift in Sources */,
 				CD583B93237AD3240030C7A2 /* CarModelTests.swift in Sources */,
 				CD46524A2375BD4A006B8108 /* CarScoutTests.swift in Sources */,
+				CD0EB397237D9B5E00A351E4 /* CarListDatasourceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

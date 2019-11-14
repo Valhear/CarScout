@@ -22,26 +22,30 @@ class CarListDatasourceTests: XCTestCase {
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
 
+    // Test for instantiating a datasource object
     func testCreateDatasourceObject() {
         let datasource = CarListDataSource(carItems: testCars!)
         XCTAssertNotNil(datasource)
     }
 
+    // Test for number of sections returned from datasource
     func testDatasourceNumberOfSections() {
         let datasource = CarListDataSource(carItems: testCars!)
         let sections = datasource.numberOfSections()
         XCTAssertEqual(sections, 1)
     }
     
+    // Test for number of items returned from datasource
     func testDatasourceNumberOfCarItems() {
         let datasource = CarListDataSource(carItems: testCars!)
         let numberOfCarItems = datasource.numberOfCarItems()
         XCTAssertEqual(numberOfCarItems, 28)
     }
     
+    // Test for type of item returned from datasource
     func testDatasourceItemAtIndex() {
         let datasource = CarListDataSource(carItems: testCars!)
         let item = datasource.item(at: IndexPath(row: 0, section: 0))!

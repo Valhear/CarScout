@@ -18,6 +18,7 @@ class CarScoutTests: XCTestCase {
         super.tearDown()
     }
 
+    // Test for instanitating Home View Controller
     func testHomeScreen() {
         var mainStoryboard: UIStoryboard!
         mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -26,6 +27,7 @@ class CarScoutTests: XCTestCase {
         XCTAssertNotNil(homeVC, "Unable to instantiate HomeViewController")
     }
 
+    // Test for instanitating Car List View Controller
     func testCarListScreen() {
         var carListStoryboard: UIStoryboard!
         carListStoryboard = UIStoryboard(name: "CarList", bundle: nil)

@@ -28,6 +28,7 @@ class NetworkHandlerTests: XCTestCase {
         })
     }
     
+    // Test for decoding a data response
     func testDecodeDataResponse() {
         guard let filePath = Bundle.main.url(forResource: "CarListTestData", withExtension: "json") else { return }
         

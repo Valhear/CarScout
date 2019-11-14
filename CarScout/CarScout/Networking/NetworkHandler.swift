@@ -22,8 +22,8 @@ class NetworkHandler {
         guard let url = URL(string: serverURL) else { return }
 
         let task = session.dataTask(with: url) { (data, response, error) in
-            if error != nil || data == nil {
-                failure(NetworkError(error: error!))
+            if let clientError = error, data == nil {
+                failure(NetworkError(error: clientError))
                 
                 return
             }

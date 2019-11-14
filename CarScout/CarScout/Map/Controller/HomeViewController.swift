@@ -21,20 +21,22 @@ protocol CarDetailsPresenter {
 
 /// Represents the Main view controller where the Car Object are visually displayed in a Map through Pins
 class HomeViewController: UIViewController {
-    let regionRadius: CLLocationDistance = 5000
-    let initialLocation = CLLocation(latitude: 48.134557, longitude: 11.576921)
-    
-    var carList = [Car]()
+    enum InitialLocation {
+        static let regionRadius: CLLocationDistance = 5000
+        static let geoLocation = CLLocation(latitude: 48.134557, longitude: 11.576921)
+    }
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var carDetailView: CarDetailsView!
+    
+    var carList = [Car]()
     let drawerView = DrawerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapView.delegate = self
-        centerMapOnLocation(location: initialLocation)
+        centerMapOnLocation(location: InitialLocation.geoLocation)
         updateCarList()
     }
     
@@ -42,16 +44,13 @@ class HomeViewController: UIViewController {
         setupDrawerView()
     }
     
-    /// Moves the map and centers on given location
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
+    // MARK: - Populate data
     
     /// Retrieve the List of cars from the network
-    func updateCarList() {
+    private func updateCarList() {
         let networkHandler = NetworkHandler()
-        networkHandler.getCarList(success: { [weak self] cars in
+        
+        let successBlock: DownloadSuccess = { [weak self] cars in
             guard let strongSelf = self else { return }
             guard let cars = cars else { return }
             
@@ -61,16 +60,30 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 strongSelf.mapView.addAnnotations(annotations)
             }
-        }, failure: { [weak self] error in
+        }
+        
+        let failureBlock: DownloadFailure = { [weak self] error in
             guard let strongSelf = self else { return }
             guard let error = error else { return }
                         
             DispatchQueue.main.async {
                 let alert = UIAlertController(title: "Error downloading the car data", message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in } ))
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                
                 strongSelf.present(alert, animated: true, completion: nil)
             }
-        })
+        }
+        
+        networkHandler.getCarList(success: successBlock, failure: failureBlock)
+    }
+    
+    // MARK: - Car Selection
+    
+    /// Performs basic configuration when a Car is selected
+    private func selectCarForDetails(carSelected: CarViewModel) {
+        carDetailView.configure(with: carSelected)
+        drawerView.setPosition(.partiallyOpen, animated: true)
+        centerMapOnLocation(location: carSelected.location)
     }
     
     /// Prepares the DrawerView that contains the Details for the selected Car
@@ -85,21 +98,23 @@ class HomeViewController: UIViewController {
         carDetailView.carDetailsPresenter = self
         drawerView.addSubview(carDetailView)
     }
+    
+    /// Moves the map and centers on given location
+    private func centerMapOnLocation(location: CLLocation) {
+        let radius = InitialLocation.regionRadius
+        let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: radius, longitudinalMeters: radius)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
 }
 
 // MARK: - MKMapViewDelegate
 
 extension HomeViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        let pinSelected = view.annotation as! CarAnnotation
-        let location = CLLocation(latitude: pinSelected.coordinate.latitude, longitude: pinSelected.coordinate.longitude)
-        
-        centerMapOnLocation(location: location)
+        guard let pinSelected = view.annotation as? CarAnnotation else { return }
         
         let carViewModel = CarViewModel(car: pinSelected.carItem)
-        carDetailView.configure(with: carViewModel)
-        
-        drawerView.setPosition(.partiallyOpen, animated: true)
+        selectCarForDetails(carSelected: carViewModel)
     }
 }
 
@@ -111,9 +126,13 @@ extension HomeViewController: CarDetailsPresenter {
         
         guard let carItem = carItem else { return }
         
-        carDetailView.configure(with: carItem)
-        drawerView.setPosition(.partiallyOpen, animated: true)
-        centerMapOnLocation(location: carItem.location)
+        selectCarForDetails(carSelected: carItem)
+        let carCoordinate = carItem.location.coordinate
+        let selectedPin = mapView.annotations.first { $0.coordinate.latitude == carCoordinate.latitude && $0.coordinate.longitude == carCoordinate.longitude }
+        
+        if let annotation = selectedPin {
+            mapView.selectAnnotation(annotation, animated: true)
+        }
     }
     
     func showCarListTableViewController() {
@@ -122,7 +141,7 @@ extension HomeViewController: CarDetailsPresenter {
         guard let carListVC = storyboard.instantiateViewController(withIdentifier: "CarListViewController") as? CarListViewController else { return }
         carListVC.carDetailsPresenter = self
         carListVC.carListDataSource = CarListDataSource(carItems: carList)
-                
+        
         present(carListVC, animated: true, completion: nil)
     }
 }

@@ -17,3 +17,7 @@ iOS application that displays a set of cars on a map and a list
 ### Dependencies (Cocoapods)
 - DrawerView: Used to add a drop-down view over the map to show the Car Details (Similar to Sixt App)
 - SDWebImage: Used as an async image downloader which already provides cache support.
+
+### Final Result
+
+![](sixt.gif)

@@ -20,35 +20,19 @@ class CarDetailsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
-    func configure(with car: Car) {
-        let imageURL = URL(string: car.carImageUrl)
-        carImage.setImage(with: imageURL)
+    func configure(with car: CarViewModel) {
+        carImage.setImage(with: car.carImageUrl)
         
         make.text = car.make
         modelName.text = car.modelName
-        fuelType.text = car.fuelKind
-        fuelLevel.text = car.fuelPercentage
-        transmission.text = car.transmissionType
-    }
-
-}
-
-extension UIImageView {
-    func setImage(with url: URL?) {
-        guard let imageURL = url else {
-            image = UIImage(named: "defaultCarImage")
-            
-            return
-        }
-        sd_setImage(with: imageURL, placeholderImage: UIImage(named: "defaultCarImage"), options: .scaleDownLargeImages, context: nil)
+        fuelType.text = car.fuelType
+        fuelLevel.text = car.fuelLevel
+        transmission.text = car.transmission
     }
 }

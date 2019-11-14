@@ -87,7 +87,10 @@ extension HomeViewController: MKMapViewDelegate {
         let location = CLLocation(latitude: pinSelected.coordinate.latitude, longitude: pinSelected.coordinate.longitude)
         
         centerMapOnLocation(location: location)
-        carDetailView.configure(with: pinSelected.carItem)
+        
+        let carViewModel = CarViewModel(car: pinSelected.carItem)
+        carDetailView.configure(with: carViewModel)
+        
         drawerView.setPosition(.partiallyOpen, animated: true)
     }
 }
@@ -95,8 +98,12 @@ extension HomeViewController: MKMapViewDelegate {
 extension HomeViewController: CarDetailsProvider {
     func showCarDetails(carObject: Car) {
         dismiss(animated: true, completion: nil)
-        carDetailView.configure(with: carObject)
+        
+        let carViewModel = CarViewModel(car: carObject)
+        carDetailView.configure(with: carViewModel)
+        
         drawerView.setPosition(.partiallyOpen, animated: true)
+        centerMapOnLocation(location: carViewModel.location)
     }
     
     func showCarListTableViewController() {

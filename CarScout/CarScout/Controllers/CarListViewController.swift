@@ -37,7 +37,9 @@ class CarListViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "carDetailsCell", for: indexPath) as? CarDetailsTableViewCell, let delegate = carDetailsProvider else { return UITableViewCell() }
 
         let carObject = delegate.carList[indexPath.row]
-        cell.configure(with: carObject)
+        
+        let carViewModel = CarViewModel(car: carObject)
+        cell.configure(with: carViewModel)
         
         return cell
     }

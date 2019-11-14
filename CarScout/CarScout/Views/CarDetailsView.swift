@@ -25,21 +25,17 @@ class CarDetailsView: UIView {
     @IBAction func showCarList(_ sender: UIButton) {
         carDetailsProvider?.showCarListTableViewController()
     }
-    
-    //TODO:Add property car Image URL
-    
-    func configure(with car: Car) {
-        let imageURL = URL(string: car.carImageUrl)
         
+    func configure(with car: CarViewModel) {        
         make.text = car.make
         modelName.text = car.modelName
         license.text = car.licensePlate
-        cleanliness.tintColor = car.cleanliness
+        cleanliness.tintColor = car.innerCleanliness
         name.text = car.name
-        fuelType.text = car.fuelKind
-        fuelLevel.text = car.fuelPercentage
-        transmission.text = car.transmissionType
-        carImage.setImage(with: imageURL)
+        fuelType.text = car.fuelType
+        fuelLevel.text = car.fuelLevel
+        transmission.text = car.transmission
+        carImage.setImage(with: car.carImageUrl)
     }
 }
 

@@ -14,7 +14,8 @@ class CarListViewController: UITableViewController {
         static let cellHeight: CGFloat = 150.0
     }
 
-    var carDetailsProvider: CarDetailsProvider?
+    var carDetailsPresenter: CarDetailsPresenter?
+    var carListDataSource: CarListDataSourceProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,35 +24,33 @@ class CarListViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return carListDataSource?.numberOfSections() ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let delegate = carDetailsProvider else { return 0 }
-        
-        return delegate.carList.count
+        return carListDataSource?.numberOfCarItems() ?? 0
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "carDetailsCell", for: indexPath) as? CarDetailsTableViewCell, let delegate = carDetailsProvider else { return UITableViewCell() }
-
-        let carObject = delegate.carList[indexPath.row]
-        
-        let carViewModel = CarViewModel(car: carObject)
-        cell.configure(with: carViewModel)
+        let carDetailsCell = tableView.dequeueReusableCell(withIdentifier: "carDetailsCell", for: indexPath) as? CarDetailsTableViewCell
+        guard let cell = carDetailsCell, let datasource = carListDataSource, let carVM = datasource.item(at: indexPath) else {
+            return UITableViewCell()
+        }
+        cell.configure(with: carVM)
         
         return cell
     }
-    
+}
+
+// MARK: - Table view delegate
+
+extension CarListViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return TableViewLayoutConstants.cellHeight
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let delegate = carDetailsProvider else { return }
-        
-        let carObject = delegate.carList[indexPath.row]
-        carDetailsProvider?.showCarDetails(carObject: carObject)
+        let carVM = carListDataSource?.item(at: indexPath)
+        carDetailsPresenter?.showCarDetails(carItem: carVM)
     }
 }

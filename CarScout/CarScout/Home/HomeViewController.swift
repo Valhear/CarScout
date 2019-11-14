@@ -10,9 +10,8 @@ import UIKit
 import MapKit
 import DrawerView
 
-protocol CarDetailsProvider {
-    var carList: [Car] { get }
-    func showCarDetails(carObject: Car)
+protocol CarDetailsPresenter {
+    func showCarDetails(carItem: CarViewModel?)
     func showCarListTableViewController()
 }
 
@@ -75,7 +74,7 @@ class HomeViewController: UIViewController {
         drawerView.collapsedHeight = 20
         
         carDetailView.frame = drawerView.bounds
-        carDetailView.carDetailsProvider = self
+        carDetailView.carDetailsPresenter = self
         drawerView.addSubview(carDetailView)
     }
 }
@@ -95,22 +94,23 @@ extension HomeViewController: MKMapViewDelegate {
     }
 }
 
-extension HomeViewController: CarDetailsProvider {
-    func showCarDetails(carObject: Car) {
+extension HomeViewController: CarDetailsPresenter {
+    func showCarDetails(carItem: CarViewModel?) {
         dismiss(animated: true, completion: nil)
         
-        let carViewModel = CarViewModel(car: carObject)
-        carDetailView.configure(with: carViewModel)
+        guard let carItem = carItem else { return }
         
+        carDetailView.configure(with: carItem)
         drawerView.setPosition(.partiallyOpen, animated: true)
-        centerMapOnLocation(location: carViewModel.location)
+        centerMapOnLocation(location: carItem.location)
     }
     
     func showCarListTableViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         guard let carListVC = storyboard.instantiateViewController(withIdentifier: "CarListViewController") as? CarListViewController else { return }
-        carListVC.carDetailsProvider = self
+        carListVC.carDetailsPresenter = self
+        carListVC.carListDataSource = CarListDataSource(carItems: carList)
                 
         present(carListVC, animated: true, completion: nil)
     }

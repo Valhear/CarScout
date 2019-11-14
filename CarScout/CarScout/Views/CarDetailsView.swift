@@ -20,10 +20,10 @@ class CarDetailsView: UIView {
     @IBOutlet weak var transmission: UILabel!
     @IBOutlet weak var carImage: UIImageView!
     
-    var carDetailsProvider: CarDetailsProvider?
+    var carDetailsPresenter: CarDetailsPresenter?
     
     @IBAction func showCarList(_ sender: UIButton) {
-        carDetailsProvider?.showCarListTableViewController()
+        carDetailsPresenter?.showCarListTableViewController()
     }
         
     func configure(with car: CarViewModel) {        
